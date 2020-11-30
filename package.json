@@ -1,0 +1,27 @@
+{
+  "name": "tictactoedapp",
+  "version": "1.0.0",
+  "description": "A simple Tac Tac Toe Solidity Smart Contract",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ganache": "ganache-cli --networkId $npm_package_config_ganache_networkId --allowUnlimitedContractSize --gasLimit $npm_package_config_ganache_gasLimit --gasPrice $npm_package_config_ganache_gasPrice --mnemonic \"$MNEMONIC\"",
+    "start": "concurrently \"npm run ganache\" \"npm run migrate\"",
+    "migrate": "rm -rf build && truffle migrate --reset --compile-all --network development"
+    
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "ganache-cli": "^6.12.1",
+    "truffle": "^5.1.55"
+  },
+  "config": {
+      "ganache": {
+          "networkId": 20201128,
+          "gasPrice": 25000000000,
+          "gasLimit": 6500000
+      }
+  }
+}
